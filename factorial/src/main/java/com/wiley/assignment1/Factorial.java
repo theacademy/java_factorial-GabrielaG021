@@ -29,17 +29,24 @@ public class Factorial {
 			- Print the following message to the console: "Invalid entry. Please enter an integer between 1 and 10, inclusive."
 			    - Use `this.printStream.print()` and NOT `System.out.println()` to print to the console.
 			- Return -1
-			
 		- All code should be inside the placeholders below.
 		*/
 
 		//YOUR CODE STARTS HERE
-
-		return -1;
-
+                // Line 38: This will be used to print prompts and any error messages in the console
+                try {
+                    num = Integer.parseInt(scanner.nextLine()); // Gets user input and converts to an integer
+                }catch (NumberFormatException error){
+                }
+                
+                if(num >= 1 && num <= 10){
+                    return num;
+                } else {
+                    this.printStream.print("Please Enter valid Input as number between 1 and 10 only, both inclusive");
+                    return -1;
+                }
+                
 		//YOUR CODE ENDS HERE
-		 
-			
 	 }
 	
 	 
@@ -53,9 +60,11 @@ public class Factorial {
 		 
 		int result = 1;
 		//YOUR CODE STARTS HERE
-
- 
-
+                int initialNum = 1;
+                while(initialNum <= num){
+                    result = result * initialNum;
+                    initialNum++;
+                }
 		//YOUR CODE ENDS HERE
 		this.printStream.print("The Factorial is: " + result);		
 		
